@@ -1,4 +1,8 @@
 
+import time
+
 while True:
-    # Print current time and sleep 1 minute
-    print("")
+  localtime = time.localtime()
+  result = time.strftime("%I:%M:%S %p", localtime)
+  print(result)
+  time.sleep(1)
