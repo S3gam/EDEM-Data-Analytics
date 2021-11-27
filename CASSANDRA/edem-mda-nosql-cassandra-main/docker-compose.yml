@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+
+  cassandra:
+    image: cassandra:latest
+
+  cqlsh:
+    image: cassandra:latest
+    entrypoint: cqlsh cassandra
+  
+  zeppelin:
+    image: apache/zeppelin:0.8.1
+    ports: 
+      - 9999:8080
+
+  nifi:
+    image: apache/nifi:latest
+    container_name: nifi
+    restart: always
+    ports:
+      - 8443:8443
+    environment:
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=ctsBtRBKHRAx69EqUghvvgEvjnaLjFEB
